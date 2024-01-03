@@ -1,13 +1,17 @@
 import { View, Text, ScrollView, StyleSheet } from 'react-native';
+import { router } from 'expo-router';
 
-import Header from '../../components/Header';
 import CircleButton from '../../components/CircleButton';
 import Icon from '../../components/Icon';
+
+const handlePress = (): void => {
+  // メモ編集画面に遷移
+  router.push('/memo/edit');
+};
 
 const Detail = (): JSX.Element => {
   return (
     <View style={styles.container}>
-      <Header />
       <View style={styles.memoHeader}>
         <Text style={styles.memoTitle}>買い物リスト</Text>
         <Text style={styles.memoDate}>2020年12月24日 10:00</Text>
@@ -18,7 +22,7 @@ const Detail = (): JSX.Element => {
           本文用なので使い方を
         </Text>
       </ScrollView>
-      <CircleButton style={{ top: 160, bottom: 'auto' }}>
+      <CircleButton onPress={handlePress} style={{ top: 60, bottom: 'auto' }}>
         <Icon name='pencil' size={40} color='#ffffff' />
       </CircleButton>
     </View>
